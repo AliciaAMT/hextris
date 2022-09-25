@@ -1,5 +1,5 @@
 {
-  "name": "Hextris PWA",
+  "name": "Hextris HD",
   "short_name": "Hextris",
   "icons": [
     {
@@ -518,7 +518,7 @@
       "src": "meta/firefox/firefox-general-16-16.png",
       "type": "image/png",
       "sizes": "16x16"
-    },
+    }
    
 
   ],
