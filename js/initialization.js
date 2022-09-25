@@ -10,24 +10,24 @@ function initialize( a ) {
 	window.rush = 1;
 	window.lastTime = Date.now();
 	window.iframHasLoaded = false;
-	window.colors = [ "#e74c3c", "#f1c40f", "#3498db", "#2ecc71" ];
+	window.colors = [ "#e74c3c", "#ff00ff", "#3498db", "#2ecc71" ];
 	window.hexColorsToTintedColors = {
 		"#e74c3c": "rgb(241,163,155)",
-		"#f1c40f": "rgb(246,223,133)",
+		"#ff00ff": "rgb(200,140,200)",
 		"#3498db": "rgb(151,201,235)",
 		"#2ecc71": "rgb(150,227,183)"
 	};
 
 	window.rgbToHex = {
 		"rgb(231,76,60)": "#e74c3c",
-		"rgb(241,196,15)": "#f1c40f",
+		"rgb(255,0,255)": "#ff00ff",
 		"rgb(52,152,219)": "#3498db",
 		"rgb(46,204,113)": "#2ecc71"
 	};
 
 	window.rgbColorsToTintedColors = {
 		"rgb(231,76,60)": "rgb(241,163,155)",
-		"rgb(241,196,15)": "rgb(246,223,133)",
+		"rgb(255,0,255)": "rgb(200,140,200)",
 		"rgb(52,152,219)": "rgb(151,201,235)",
 		"rgb(46,204,113)": "rgb(150,227,183)"
 	};
