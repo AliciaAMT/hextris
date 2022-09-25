@@ -32,9 +32,9 @@ function initialize( a ) {
 		"rgb(46,204,113)": "rgb(150,227,183)"
 	};
 
-	window.hexagonBackgroundColor = 'rgb(236, 240, 241)';
-	window.hexagonBackgroundColorClear = 'rgba(236, 240, 241, 0.5)';
-	window.centerBlue = 'rgb(44,62,80)';
+	window.hexagonBackgroundColor = 'rgb(0, 0, 0)';
+	window.hexagonBackgroundColorClear = 'rgba(10, 10, 10, 0.8)';
+	window.centerBlue = 'rgb(0,0,0)';
 	window.angularVelocityConst = 4;
 	window.scoreOpacity = 0;
 	window.textOpacity = 0;

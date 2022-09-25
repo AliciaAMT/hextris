@@ -19,7 +19,7 @@
 
 }
 #container {
-	color:#232323;
+	color:#d6d6d6;
 	position:absolute;
 	left:50%;
 	top:calc(50%);
@@ -41,7 +41,7 @@
 	}
 }
 a {
-	color:#232323;
+	color:#acacac; /*dev link color*/
 }
 .navbar {
 	width:80%;
@@ -56,7 +56,7 @@ a {
 }
 
 #title {
-	color:#ecf0f1;
+	color:#53d8f9;
 	font-size:6vmin;
 }
 
@@ -76,7 +76,7 @@ a {
 }
 
 button {
-	color:#ecf0f1;
+	color:#cbcbcb;
 	background-color:rgba(0,0,0,0);
 	border:0;
 }
@@ -92,7 +92,7 @@ button:focus {
 	height:72px;
 	margin-left:11px;
 	z-index:3003;
-	color:#232323;
+	color:#dadada;
 	cursor:pointer;
 	top:0;
 	left:0;
@@ -148,8 +148,8 @@ button:focus {
 	font-size:15px;
 	text-align:center;
 	display:none;
-	color:#232323;
-	background-color:rgba(236,240,241,1);
+	color:#b3b3b3;
+	background-color:rgb(0, 0, 0);
 }
 
 #colorBlindBtn {
@@ -187,7 +187,7 @@ button:focus {
 #inst_main_body > hr {
 	width:100%;
 	color:#232323;
-	background-color:#232323;
+	background-color:#131313;
 	height:1px;
 	border:0;
 }
@@ -204,7 +204,7 @@ button:focus {
 
 
 #highScoreInGameTextHeader {
-	color: #bdc3c7;
+	color: #d7d7d7;
 	width:100%;
 }
 
@@ -218,7 +218,7 @@ button:focus {
 }
 
 #currentHighScore {
-	color: #2c3e50;
+	color: #c6c6c6;
 	width:100%;
 	margin-top: -5px;
 	font-size:2em;
@@ -268,7 +268,7 @@ button:focus {
 	margin-left:-50%;
 	margin-top:-10%;
 	z-index:3000;
-	color:#232323;
+	color:#bebebe;
 	text-align:center;
 }
 
@@ -364,9 +364,9 @@ button:focus {
 }
 
 body {
-	color:#ecf0f1;
+	color:#d3d3d3;
 	font-family:'Exo', sans-serif;
-	background-color:#ecf0f1;
+	background-color:#000000;
 }
 
 #clickToExit {
@@ -380,13 +380,13 @@ body {
 	right:0;
 	height:100%;
 	width:100%;
-	background-color:#ecf0f1;
+	background-color:#030303;
 	z-index:0;
 }
 #title {
 	z-index:99;
 	margin-top:20px;
-	color:#2c3e50;
+	color:#6b45bd;
 }
 
 #gameoverscreen {

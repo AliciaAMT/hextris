@@ -1,7 +1,7 @@
 function Hex(sideLength) {
 	this.playThrough = 0;
-	this.fillColor = [44,62,80];
-	this.tempColor = [44,62,80];
+	this.fillColor = [00,00,00];
+	this.tempColor = [00,00,00];
 	this.angularVelocity = 0;
 	this.position = 0;
 	this.dy = 0;
