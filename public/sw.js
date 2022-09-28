@@ -1,4 +1,4 @@
-const preCacheName = "pre-cache-hextris-v2",
+const preCacheName = "pre-cache-hextris-v3",
     preCacheFiles = [
         "/",
         "https://fonts.googleapis.com/css?family=Exo+2",

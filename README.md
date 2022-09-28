@@ -1,4 +1,32 @@
-# Hextris
+# Hextris 
+
+## Version 1.2
+
+- Added Privacy Policy
+- Added Splash Screen
+- Added License Information
+
+## Version 1.1
+
+- Changed colors of yellow blocks to purple
+- Changed background color to dark gray
+- Changed various fonts, colors, and variables
+- Removed outside links
+- Updated service worker to new version
+- Packaged for updated Google Play Store specifications
+- Added accessibility features
+
+Modified and Updated By:
+- Alicia Taylor ([@aliciataylor](https://github.com/AliciaAMT))
+
+Updated PWA Code By:
+- Chris Love ([@ChrisLove](https://love2dev.com/))
+
+Original Code By:
+ - Logan Engstrom ([@lengstrom](http://loganengstrom.com/))
+ - Garrett Finucane ([@garrettdreyfus](http://github.com/garrettdreyfus))
+ - Noah Moroze ([@nmoroze](http://github.com/nmoroze))
+ - Michael Yang ([@themichaelyang](http://github.com/themichaelyang))
 
 
 ## Install Server
