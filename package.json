@@ -13,6 +13,7 @@
         "http-server": "*"
     },
     "dependencies": {
+        "howler": "^2.2.3",
         "web-dev-server": "^3.0.27"
     }
 }

@@ -1,8 +1,26 @@
+// import { Howl, Howler } from 'howler';
+// import { Howl, Howler } from '../../node_modules/howler';
+
+var sound = new Howl({
+	src: 'audio/sherriff.mp3',
+	loop: true,
+	volume: 0.5,
+	onend: function() {
+		console.log('Finished!');
+	}
+	});
+
 $( document ).ready( function () {
 	initialize();
 } );
 
+function playTheme() {
+		sound.play();
+	  }
+
 function initialize( a ) {
+
+	
 
 	var $startBtn = $( '#startBtn' ),
 		$window = $( window );
@@ -199,8 +217,21 @@ function initialize( a ) {
 		}, 1 );
 	}
 }
+function pauseTheme() {
+	
+		sound.pause();
+	
+}
+function muteTheme() {
+	
+		sound.mute();
+	
+}
 
 function startBtnHandler() {
+	sound.play();
+	// playTheme();
+	// play music here when you start the game but not until i add a toggle button to turn it off
 	setTimeout( function () {
 		if ( settings.platform == "mobile" ) {
 			try {

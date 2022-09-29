@@ -1,10 +1,15 @@
+
+
 var $startBtn = $( '#startBtn' ),
 	$pauseBtn = $( '#pauseBtn' ),
 	$restartBtn = $( '#restartBtn' ),
-	$pauseBtn = $( '#pauseBtn' ),
 	$helpscreen = $( '#helpScreen' ),
 	$openSideBar = $( '#openSideBar' ),
-	$forkRibbon = $( '#fork-ribbon' );
+	$forkRibbon = $( '#fork-ribbon' ),
+	$muteBtn = $( '#muteBtn' ),
+	$playBtn = $( '#playBtn' );
+
+
 
 
 function scaleCanvas() {
@@ -77,6 +82,8 @@ function resumeGame() {
 	gameState = 1;
 	hideUIElements();
 	$pauseBtn.show();
+	$muteBtn.show();
+	$playBtn.show();
 	$restartBtn.hide();
 	importing = 0;
 	startTime = Date.now();
@@ -93,6 +100,8 @@ function checkVisualElements( arg ) {
 	if ( arg && $openSideBar.is( ":visible" ) ) $openSideBar.fadeOut( 150, "linear" );
 	if ( !$pauseBtn.is( ':visible' ) ) $pauseBtn.fadeIn( 150, "linear" );
 	$forkRibbon.fadeOut( 150 );
+	if ( !$muteBtn.is( ':visible' ) ) $muteBtn.fadeIn( 150, "linear" );
+	if ( !$playBtn.is( ':visible' ) ) $playBtn.fadeIn( 150, "linear" );
 	if ( !$restartBtn.is( ':visible' ) ) $restartBtn.fadeOut( 150, "linear" );
 	if ( $( '#buttonCont' ).is( ':visible' ) ) $( '#buttonCont' ).fadeOut( 150, "linear" );
 }
@@ -101,6 +110,8 @@ function hideUIElements() {
 	$pauseBtn.hide();
 	$restartBtn.hide();
 	$startBtn.hide();
+	$muteBtn.hide();
+	$playBtn.hide();
 }
 
 function init( b ) {
@@ -109,6 +120,8 @@ function init( b ) {
 	}
 	if ( b ) {
 		$pauseBtn.attr( 'src', "./images/btn_pause.svg" );
+		$muteBtn.attr( 'src', "./images/mute.png" );
+		$playBtn.attr( 'src', "./images/audio.png" );
 		if ( $helpscreen.is( ":visible" ) ) {
 			$helpscreen.fadeOut( 150, "linear" );
 		}
@@ -133,6 +146,8 @@ function init( b ) {
 
 	infobuttonfading = true;
 	$pauseBtn.attr( 'src', "./images/btn_pause.svg" );
+	$muteBtn.attr( 'src', "./images/mute.png" );
+	$playBtn.attr( 'src', "./images/audio.png" );
 	hideUIElements();
 	var saveState = localStorage.getItem( "saveState" ) || "{}";
 	saveState = JSONfn.parse( saveState );
@@ -149,6 +164,8 @@ function init( b ) {
 	gameState = 1;
 	$restartBtn.hide();
 	$pauseBtn.show();
+	$muteBtn.show();
+	$playBtn.show();
 
 	if ( saveState.hex !== undefined ) gameState = 1;
 
@@ -236,7 +253,8 @@ function exportHistory() {
 }
 
 function setStartScreen() {
-
+	$muteBtn.show();
+	$playBtn.show();
 	$startBtn.show();
 	init();
 	if ( isStateSaved() ) {
@@ -248,6 +266,7 @@ function setStartScreen() {
 	$pauseBtn.hide();
 	$restartBtn.hide();
 	$startBtn.show();
+
 
 	gameState = 0;
 	requestAnimFrame( animLoop );
@@ -288,7 +307,8 @@ function animLoop() {
 				if ( $helpscreen.is( ':visible' ) ) {
 					$helpscreen.fadeOut( 150, "linear" );
 				}
-
+				if ( $muteBtn.is( ':visible' ) ) $muteBtn.fadeOut( 150, "linear" );
+				if ( $playBtn.is( ':visible' ) ) $playBtn.fadeOut( 150, "linear" );
 				if ( $pauseBtn.is( ':visible' ) ) $pauseBtn.fadeOut( 150, "linear" );
 				if ( $restartBtn.is( ':visible' ) ) $restartBtn.fadeOut( 150, "linear" );
 				if ( $openSideBar.is( ':visible' ) ) $( '.openSideBar' ).fadeOut( 150, "linear" );
@@ -386,12 +406,20 @@ function showHelp() {
 		}
 	}
 
-	$( "#inst_main_body" ).html( "<div id = 'instructions_head'>HOW TO PLAY</div><p>The goal of Hextris is to stop blocks from leaving the inside of the outer gray hexagon.</p><p>" + ( settings.platform != 'mobile' ? 'Press the right and left arrow keys' : 'Tap the left and right sides of the screen' ) + " to rotate the Hexagon." + ( settings.platform != 'mobile' ? ' Press the down arrow to speed up the block falling' : '' ) + " </p><p>Clear blocks and get points by making 3 or more blocks of the same color touch.</p><p>Time left before your combo streak disappears is indicated by <span style='color:#f1c40f;'>the</span> <span style='color:#e74c3c'>colored</span> <span style='color:#3498db'>lines</span> <span style='color:#2ecc71'>on</span> the outer hexagon</p> <hr> <p id='afterhr'></p> By Alicia Tayor for <a href='http://accessiblewebmedia.com'>Accessible Web Media © 2022</a > See <a href='privacy.html'>Full Licensing and Privacy Policy</a>" );
+	$( "#inst_main_body" ).html( "<div id = 'instructions_head'>HOW TO PLAY</div><p>The goal of Hextris is to stop blocks from leaving the inside of the outer gray hexagon.</p><p>" + ( settings.platform != 'mobile' ? 'Press the right and left arrow keys' : 'Tap the left and right sides of the screen' ) + " to rotate the Hexagon." + ( settings.platform != 'mobile' ? ' Press the down arrow to speed up the block falling' : '' ) + " </p><p>Clear blocks and get points by making 3 or more blocks of the same color touch.</p><p>Time left before your combo streak disappears is indicated by <span style='color:#f1c40f;'>the</span> <span style='color:#e74c3c'>colored</span> <span style='color:#3498db'>lines</span> <span style='color:#2ecc71'>on</span> the outer hexagon</p> <hr> <p id='afterhr'></p> By Alicia Taylor for <a href='http://accessiblewebmedia.com'>Accessible Web Media © 2022</a > See <a href='privacy.html'>Full Licensing and Privacy Policy</a>" );
 	if ( gameState == 1 ) {
 		pause();
 	}
 
 	if ( $pauseBtn.attr( 'src' ) == "./images/btn_pause.svg" && gameState != 0 && !infobuttonfading ) {
+		return;
+	}
+
+	if ( $muteBtn.attr( 'src' ) == "./images/mute.png" && gameState != 0 && !infobuttonfading ) {
+		return;
+	}
+
+	if ( $playBtn.attr( 'src' ) == "./images/btn_play.svg" && gameState != 0 && !infobuttonfading ) {
 		return;
 	}
 
