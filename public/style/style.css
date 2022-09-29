@@ -100,7 +100,23 @@ button:focus {
 }
 
 
-#pauseBtn {
+#muteBtn {
+	display:none;
+	position:fixed;
+	margin-bottom:7px;
+	width:72px;
+	height:72px;
+	margin-right:11px;
+	z-index:3000;
+	color:#232323;
+	cursor:pointer;
+	right:0;
+	bottom:0;
+	z-index:99;
+}
+
+
+#playBtn {
 	display:none;
 	position:fixed;
 	margin-bottom:7px;
@@ -250,6 +266,14 @@ button:focus {
 		height:60px;
 	}
 	#pauseBtn {
+		width:60px;
+		height:60px;
+	}
+	#muteBtn {
+		width:60px;
+		height:60px;
+	}
+	#playBtn {
 		width:60px;
 		height:60px;
 	}

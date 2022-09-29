@@ -199,6 +199,7 @@ function pause(o) {
 		setTimeout(function() {
 			gameState = prevGameState;
 			pausable =true;
+			sound.play();
 		}, 400);
 	} else if (gameState != -2 && gameState !== 0 && gameState !== 2) {
 		$('#restartBtn').fadeIn(300, "linear");
@@ -206,6 +207,7 @@ function pause(o) {
 		$('.helpText').fadeIn(300, 'linear');
 		if (message == 'paused') {
 			showText(message);
+			sound.pause();
 		}
 		$('#fork-ribbon').fadeIn(300, 'linear');
 		$("#pauseBtn").attr("src","./images/btn_resume.svg");
@@ -215,5 +217,6 @@ function pause(o) {
 		    pausable = true;
 		}, 400);
 		gameState = -1;
+		
 	}
 }

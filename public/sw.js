@@ -34,9 +34,11 @@ const preCacheName = "pre-cache-hextris-v3",
         "images/btn_resume.svg",
         "images/btn_share.svg",
         "images/btn_twitter.svg",
-        "images/icon_arrows.svg"
+        "images/icon_arrows.svg",
+        "images/mute.png",
+        "images/audio.png",
+        "audio/sherriff.mp3",
     ];
-
 
 self.addEventListener( "install", event => {
 
@@ -73,7 +75,6 @@ self.addEventListener( "activate", event => {
     );
 
 } );
-
 
 self.addEventListener( "fetch", event => {
 

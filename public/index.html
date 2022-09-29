@@ -3,14 +3,21 @@
 
 <head>
 	<title>Hextris</title>
-	<link rel="manifest" href="/web.manifest.json">
+	<link rel="manifest" href="web.manifest.json">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.core.min.js" integrity="sha512-+wqa4/aOL4vwhL637A4p+6epqhUHDqpEfYJa1+PlzlMf908CSOb3xtIeKwZWh5Q0Q/R2nYUKxH4vvcQg+k8KKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.js" integrity="sha512-dMiBqqEV5i3KqpAdsgQSSZ72DnNib7otY0X+b/Tnn1EmLym1dxuZ19csdZqBnfDniKd9bmNtzStQzuMrIa5Ngw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
 	<link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
 	<link rel="stylesheet" href="style/fa/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link rel="stylesheet" type="text/css" href="style/style.css"></link rel="stylesheet" type="text/css" href="style/style.css">
+	<meta name="description" content="An addictive puzzle game inspired by Tetris and themed dark for fun colors.">
+	<meta name="keywords" value="Tetris, PWA, Progressive Web App, Game, Puzzle, HTML5, JavaScript, autism, visual stim, dexterity, brain training" />
+	<meta property="og:image" content="splash.jpg">
+	<meta property="og:image:type" content="image/jpg">
+	<meta property="og:image:width" content="1205">
+	<meta property="og:image:height" content="805">
 
-	<meta name="description"
-		value="An addictive puzzle game inspired by Tetris, made into a PWA for every platform!." />
-	<meta name="keywords" value="Tetris, PWA, Progressive Web App, Game, Puzzle, HTML5, JavaScript" />
 	<meta name="author" value="Alicia Taylor @ Accessible Web Media" />
 	<link rel="apple-touch-icon" href="meta/ios/ios-appicon-180-180.png">
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -38,8 +45,10 @@
 	</div>
 	<img id="openSideBar" class='helpText' alt="Help" src="./images/btn_help.svg" />
 	<div class="faded overlay"></div>
+
 	<img id="pauseBtn" alt="Pause" src="./images/btn_pause.svg" />
 	<img id='restartBtn' alt="Restart" src="./images/btn_restart.svg" />
+
 	<!-- <div id='HIGHSCORE'>HIGH SCORE</div> -->
 
 	<div id='highScoreInGameText'>
