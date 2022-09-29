@@ -227,6 +227,9 @@ function initialize( a ) {
 // 		sound.mute();
 	
 // }
+function mute() {
+	sound.pause();
+}
 
 function startBtnHandler() {
 	sound.play();
