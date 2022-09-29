@@ -6,11 +6,7 @@ var $startBtn = $( '#startBtn' ),
 	$helpscreen = $( '#helpScreen' ),
 	$openSideBar = $( '#openSideBar' ),
 	$forkRibbon = $( '#fork-ribbon' ),
-	$muteBtn = $( '#muteBtn' ),
-	$playBtn = $( '#playBtn' );
-
-
-
+	$muteBtn = $( '#muteBtn' );
 
 function scaleCanvas() {
 	canvas.width = $( window ).width();
@@ -83,7 +79,6 @@ function resumeGame() {
 	hideUIElements();
 	$pauseBtn.show();
 	$muteBtn.show();
-	$playBtn.show();
 	$restartBtn.hide();
 	importing = 0;
 	startTime = Date.now();
@@ -101,7 +96,6 @@ function checkVisualElements( arg ) {
 	if ( !$pauseBtn.is( ':visible' ) ) $pauseBtn.fadeIn( 150, "linear" );
 	$forkRibbon.fadeOut( 150 );
 	if ( !$muteBtn.is( ':visible' ) ) $muteBtn.fadeIn( 150, "linear" );
-	if ( !$playBtn.is( ':visible' ) ) $playBtn.fadeIn( 150, "linear" );
 	if ( !$restartBtn.is( ':visible' ) ) $restartBtn.fadeOut( 150, "linear" );
 	if ( $( '#buttonCont' ).is( ':visible' ) ) $( '#buttonCont' ).fadeOut( 150, "linear" );
 }
@@ -111,7 +105,6 @@ function hideUIElements() {
 	$restartBtn.hide();
 	$startBtn.hide();
 	$muteBtn.hide();
-	$playBtn.hide();
 }
 
 function init( b ) {
@@ -121,7 +114,6 @@ function init( b ) {
 	if ( b ) {
 		$pauseBtn.attr( 'src', "./images/btn_pause.svg" );
 		$muteBtn.attr( 'src', "./images/mute.png" );
-		$playBtn.attr( 'src', "./images/audio.png" );
 		if ( $helpscreen.is( ":visible" ) ) {
 			$helpscreen.fadeOut( 150, "linear" );
 		}
@@ -147,7 +139,6 @@ function init( b ) {
 	infobuttonfading = true;
 	$pauseBtn.attr( 'src', "./images/btn_pause.svg" );
 	$muteBtn.attr( 'src', "./images/mute.png" );
-	$playBtn.attr( 'src', "./images/audio.png" );
 	hideUIElements();
 	var saveState = localStorage.getItem( "saveState" ) || "{}";
 	saveState = JSONfn.parse( saveState );
@@ -165,7 +156,6 @@ function init( b ) {
 	$restartBtn.hide();
 	$pauseBtn.show();
 	$muteBtn.show();
-	$playBtn.show();
 
 	if ( saveState.hex !== undefined ) gameState = 1;
 
@@ -254,7 +244,6 @@ function exportHistory() {
 
 function setStartScreen() {
 	$muteBtn.show();
-	$playBtn.show();
 	$startBtn.show();
 	init();
 	if ( isStateSaved() ) {
@@ -308,7 +297,6 @@ function animLoop() {
 					$helpscreen.fadeOut( 150, "linear" );
 				}
 				if ( $muteBtn.is( ':visible' ) ) $muteBtn.fadeOut( 150, "linear" );
-				if ( $playBtn.is( ':visible' ) ) $playBtn.fadeOut( 150, "linear" );
 				if ( $pauseBtn.is( ':visible' ) ) $pauseBtn.fadeOut( 150, "linear" );
 				if ( $restartBtn.is( ':visible' ) ) $restartBtn.fadeOut( 150, "linear" );
 				if ( $openSideBar.is( ':visible' ) ) $( '.openSideBar' ).fadeOut( 150, "linear" );
@@ -416,10 +404,6 @@ function showHelp() {
 	}
 
 	if ( $muteBtn.attr( 'src' ) == "./images/mute.png" && gameState != 0 && !infobuttonfading ) {
-		return;
-	}
-
-	if ( $playBtn.attr( 'src' ) == "./images/btn_play.svg" && gameState != 0 && !infobuttonfading ) {
 		return;
 	}
 

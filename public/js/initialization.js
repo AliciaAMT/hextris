@@ -14,9 +14,9 @@ $( document ).ready( function () {
 	initialize();
 } );
 
-function playTheme() {
-		sound.play();
-	  }
+// function playTheme() {
+// 		sound.play();
+// 	  }
 
 function initialize( a ) {
 
@@ -217,16 +217,16 @@ function initialize( a ) {
 		}, 1 );
 	}
 }
-function pauseTheme() {
+// function pauseTheme() {
 	
-		sound.pause();
+// 		sound.pause();
 	
-}
-function muteTheme() {
+// }
+// function muteTheme() {
 	
-		sound.mute();
+// 		sound.mute();
 	
-}
+// }
 
 function startBtnHandler() {
 	sound.play();
