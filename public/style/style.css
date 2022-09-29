@@ -427,10 +427,6 @@ body {
 	color:#ff00ff;
 }
 
-#gameoverscreen {
-	/*display:none;*/
-}
-
 #restart{
 	display:none;
 	cursor:pointer !important;
