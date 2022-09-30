@@ -113,7 +113,7 @@ function init( b ) {
 	}
 	if ( b ) {
 		$pauseBtn.attr( 'src', "./images/btn_pause.svg" );
-		$muteBtn.attr( 'src', "./images/mute.png" );
+		// $muteBtn.attr( 'src', "./images/mute.png" );
 		if ( $helpscreen.is( ":visible" ) ) {
 			$helpscreen.fadeOut( 150, "linear" );
 		}
@@ -138,7 +138,7 @@ function init( b ) {
 
 	infobuttonfading = true;
 	$pauseBtn.attr( 'src', "./images/btn_pause.svg" );
-	$muteBtn.attr( 'src', "./images/mute.png" );
+	// $muteBtn.attr( 'src', "./images/mute.png" );
 	hideUIElements();
 	var saveState = localStorage.getItem( "saveState" ) || "{}";
 	saveState = JSONfn.parse( saveState );
@@ -243,7 +243,7 @@ function exportHistory() {
 }
 
 function setStartScreen() {
-	$muteBtn.show();
+	
 	$startBtn.show();
 	init();
 	if ( isStateSaved() ) {
@@ -253,6 +253,7 @@ function setStartScreen() {
 	}
 
 	$pauseBtn.hide();
+	$muteBtn.hide();
 	$restartBtn.hide();
 	$startBtn.show();
 
@@ -403,9 +404,9 @@ function showHelp() {
 		return;
 	}
 
-	if ( $muteBtn.attr( 'src' ) == "./images/mute.png" && gameState != 0 && !infobuttonfading ) {
-		return;
-	}
+	// if ( $muteBtn.attr( 'src' ) == "./images/mute.png" && gameState != 0 && !infobuttonfading ) {
+	// 	return;
+	// }
 
 	$( "#openSideBar" ).fadeIn( 150, "linear" );
 	$helpscreen.fadeToggle( 150, "linear" );

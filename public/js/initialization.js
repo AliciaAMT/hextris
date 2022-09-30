@@ -1,6 +1,6 @@
 // import { Howl, Howler } from 'howler';
 // import { Howl, Howler } from '../../node_modules/howler';
-
+let toggleMute = false;
 var sound = new Howl({
 	src: 'audio/sherriff.mp3',
 	loop: true,
@@ -228,11 +228,29 @@ function initialize( a ) {
 	
 // }
 function mute() {
-	sound.pause();
+
+	toggleIcon();
+
+	if ( gameState === 1) {
+		console.log(gameState);
+		if (!sound.playing()) {
+			sound.play();		
+		}
+		else {		
+			sound.pause();
+			console.log(gameState);
+		}
+	} 
+	
 }
 
+
+
 function startBtnHandler() {
-	sound.play();
+	if ( toggleMute==false && !sound.playing()) {
+		sound.play();
+	}
+	
 	// playTheme();
 	// play music here when you start the game but not until i add a toggle button to turn it off
 	setTimeout( function () {
