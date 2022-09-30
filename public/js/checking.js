@@ -39,6 +39,7 @@ function floodFill(hex, side, index, deleting) {
 }
 
 function consolidateBlocks(hex,side,index){
+	
 	//record which sides have been changed
 	var sidesChanged =[];
 	var deleting=[];
@@ -47,6 +48,7 @@ function consolidateBlocks(hex,side,index){
 	deleting.push([side,index]);
 	//fill deleting	
 	floodFill(hex,side,index,deleting);
+	
 	//make sure there are more than 3 blocks to be deleted
 	if(deleting.length<3){return;}
 	var i;
@@ -63,7 +65,6 @@ function consolidateBlocks(hex,side,index){
 			deletedBlocks.push(hex.blocks[arr[0]][arr[1]]);
 		}
 	}
-
 	// add scores
 	var now = MainHex.ct;
 	if(now - hex.lastCombo < settings.comboTime ){

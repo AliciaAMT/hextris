@@ -217,7 +217,7 @@ function init( b ) {
 }
 
 function addNewBlock( blocklane, color, iter, distFromHex, settled ) { //last two are optional parameters
-	sfx.play(); //play sound when block is added
+	// sfx.play(); //play sound when block is added
 	iter *= settings.speedModifier;
 	if ( !history[ MainHex.ct ] ) {
 		history[ MainHex.ct ] = {};
@@ -233,10 +233,12 @@ function addNewBlock( blocklane, color, iter, distFromHex, settled ) { //last tw
 		history[ MainHex.ct ].distFromHex = distFromHex;
 	}
 	if ( settled ) {
+	
 		blockHist[ MainHex.ct ].settled = settled;
 	
 	}
 	blocks.push( new Block( blocklane, color, iter, distFromHex, settled ) );
+	
 	
 }
 
@@ -358,6 +360,7 @@ function enableRestart() {
 }
 
 function isInfringing( hex ) {
+
 	for ( var i = 0; i < hex.sides; i++ ) {
 		var subTotal = 0;
 		for ( var j = 0; j < hex.blocks[ i ].length; j++ ) {

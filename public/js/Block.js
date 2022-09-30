@@ -35,8 +35,7 @@ function Block(fallingLane, color, iter, distFromHex, settled) {
 	this.incrementOpacity = function() {
 	
 		if (this.deleted) {
-			//add shakes
-			
+			//add shakes\
 			if (this.opacity >= 0.925) {
 				var tLane = this.attachedLane - MainHex.position;
 				tLane = MainHex.sides - tLane;

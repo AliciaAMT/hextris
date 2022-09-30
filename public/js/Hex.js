@@ -60,7 +60,6 @@ function Hex(sideLength) {
 
 	this.doesBlockCollide = function(block, position, tArr) {
 		if (block.settled) {
-			
 			return;
 		}
 
@@ -71,6 +70,7 @@ function Hex(sideLength) {
 					block.distFromHex = (this.sideLength / 2) * Math.sqrt(3);
 					block.settled = 1;
 					block.checked = 1;
+					
 				} else {
 					block.settled = 0;
 					block.iter = 1.5 + (waveone.difficulty/15) * 3;

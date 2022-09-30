@@ -19,19 +19,19 @@ var sfx = new Howl({
 		}
 		});	
 
-
+// const handler = {
+// 	set(target, prop, value) {
+// 		console.log(`changed ${prop} from ${target[prop]} to ${value}`);
+//     	target[prop] = value;
+// 	},
+// };		  
+// const proxyBlocks = new Proxy(blocks, handler);	
 
 $( document ).ready( function () {
 	initialize();
 } );
 
-// function playTheme() {
-// 		sound.play();
-// 	  }
-
 function initialize( a ) {
-
-	
 
 	var $startBtn = $( '#startBtn' ),
 		$window = $( window );
@@ -228,16 +228,7 @@ function initialize( a ) {
 		}, 1 );
 	}
 }
-// function pauseTheme() {
-	
-// 		sound.pause();
-	
-// }
-// function muteTheme() {
-	
-// 		sound.mute();
-	
-// }
+
 function mute() {
 
 	toggleIcon();
@@ -254,8 +245,6 @@ function mute() {
 	} 
 	
 }
-
-
 
 function startBtnHandler() {
 	if ( toggleMute==false && !sound.playing()) {
