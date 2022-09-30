@@ -10,6 +10,17 @@ var sound = new Howl({
 	}
 	});
 
+var sfx = new Howl({
+		src: 'audio/bump.aac',
+		loop: false,
+		volume: 0.7,
+		onend: function() {
+			console.log('Finished!');
+		}
+		});	
+
+
+
 $( document ).ready( function () {
 	initialize();
 } );

@@ -217,6 +217,7 @@ function init( b ) {
 }
 
 function addNewBlock( blocklane, color, iter, distFromHex, settled ) { //last two are optional parameters
+	sfx.play(); //play sound when block is added
 	iter *= settings.speedModifier;
 	if ( !history[ MainHex.ct ] ) {
 		history[ MainHex.ct ] = {};
@@ -233,8 +234,10 @@ function addNewBlock( blocklane, color, iter, distFromHex, settled ) { //last tw
 	}
 	if ( settled ) {
 		blockHist[ MainHex.ct ].settled = settled;
+	
 	}
 	blocks.push( new Block( blocklane, color, iter, distFromHex, settled ) );
+	
 }
 
 function exportHistory() {
