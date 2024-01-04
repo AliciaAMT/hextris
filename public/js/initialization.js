@@ -1,6 +1,6 @@
 // import { Howl, Howler } from 'howler';
 // import { Howl, Howler } from '../../node_modules/howler';
-
+let toggleMute = false;
 var sound = new Howl({
 	src: 'audio/sherriff.mp3',
 	loop: true,
@@ -10,17 +10,28 @@ var sound = new Howl({
 	}
 	});
 
+var sfx = new Howl({
+		src: 'audio/bump.aac',
+		loop: false,
+		volume: 0.7,
+		onend: function() {
+			console.log('Finished!');
+		}
+		});	
+
+// const handler = {
+// 	set(target, prop, value) {
+// 		console.log(`changed ${prop} from ${target[prop]} to ${value}`);
+//     	target[prop] = value;
+// 	},
+// };		  
+// const proxyBlocks = new Proxy(blocks, handler);	
+
 $( document ).ready( function () {
 	initialize();
 } );
 
-// function playTheme() {
-// 		sound.play();
-// 	  }
-
 function initialize( a ) {
-
-	
 
 	var $startBtn = $( '#startBtn' ),
 		$window = $( window );
@@ -217,19 +228,29 @@ function initialize( a ) {
 		}, 1 );
 	}
 }
-// function pauseTheme() {
+
+function mute() {
+
+	toggleIcon();
+
+	if ( gameState === 1) {
+		console.log(gameState);
+		if (!sound.playing()) {
+			sound.play();		
+		}
+		else {		
+			sound.pause();
+			console.log(gameState);
+		}
+	} 
 	
-// 		sound.pause();
-	
-// }
-// function muteTheme() {
-	
-// 		sound.mute();
-	
-// }
+}
 
 function startBtnHandler() {
-	sound.play();
+	if ( toggleMute==false && !sound.playing()) {
+		sound.play();
+	}
+	
 	// playTheme();
 	// play music here when you start the game but not until i add a toggle button to turn it off
 	setTimeout( function () {

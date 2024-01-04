@@ -104,9 +104,9 @@ button:focus {
 	display:none;
 	position:fixed;
 	margin-bottom:7px;
-	width:72px;
-	height:72px;
-	margin-right:11px;
+	width:64px;
+	height:64px;
+	margin-right:111px;
 	z-index:3000;
 	color:#232323;
 	cursor:pointer;

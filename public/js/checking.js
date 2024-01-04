@@ -1,5 +1,6 @@
 function search(twoD,oneD){
 	// Searches a two dimensional array to see if it contains a one dimensional array. indexOf doesn't work in this case
+	
 	for(var i=0;i<twoD.length;i++){
 		if(twoD[i][0] == oneD[0] && twoD[i][1] == oneD[1]) {
 			return true;
@@ -38,6 +39,7 @@ function floodFill(hex, side, index, deleting) {
 }
 
 function consolidateBlocks(hex,side,index){
+	
 	//record which sides have been changed
 	var sidesChanged =[];
 	var deleting=[];
@@ -46,6 +48,7 @@ function consolidateBlocks(hex,side,index){
 	deleting.push([side,index]);
 	//fill deleting	
 	floodFill(hex,side,index,deleting);
+	
 	//make sure there are more than 3 blocks to be deleted
 	if(deleting.length<3){return;}
 	var i;
@@ -62,7 +65,6 @@ function consolidateBlocks(hex,side,index){
 			deletedBlocks.push(hex.blocks[arr[0]][arr[1]]);
 		}
 	}
-
 	// add scores
 	var now = MainHex.ct;
 	if(now - hex.lastCombo < settings.comboTime ){

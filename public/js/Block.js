@@ -33,8 +33,9 @@ function Block(fallingLane, color, iter, distFromHex, settled) {
 	this.distFromHex = distFromHex || settings.startDist * settings.scale ;
 
 	this.incrementOpacity = function() {
+	
 		if (this.deleted) {
-			//add shakes
+			//add shakes\
 			if (this.opacity >= 0.925) {
 				var tLane = this.attachedLane - MainHex.position;
 				tLane = MainHex.sides - tLane;
@@ -53,6 +54,7 @@ function Block(fallingLane, color, iter, distFromHex, settled) {
 				this.deleted = 2;
 				if (gameState == 1 || gameState==0) {
 					localStorage.setItem("saveState", exportSaveState());
+				
 				}
 			}
 		}

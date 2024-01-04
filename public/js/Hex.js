@@ -26,6 +26,7 @@ function Hex(sideLength) {
 	}
 
 	this.shake = function(obj) { //lane as in particle lane
+		
 		var angle = 30 + obj.lane * 60;
 		angle *= Math.PI / 180;
 		var dx = Math.cos(angle) * obj.magnitude;
@@ -54,6 +55,7 @@ function Hex(sideLength) {
 		this.blocks[lane].push(block);
 		block.attachedLane = lane;
 		block.checked = 1;
+	
 	};
 
 	this.doesBlockCollide = function(block, position, tArr) {
@@ -68,6 +70,7 @@ function Hex(sideLength) {
 					block.distFromHex = (this.sideLength / 2) * Math.sqrt(3);
 					block.settled = 1;
 					block.checked = 1;
+					
 				} else {
 					block.settled = 0;
 					block.iter = 1.5 + (waveone.difficulty/15) * 3;
@@ -99,11 +102,11 @@ function Hex(sideLength) {
 				if (block.distFromHex + block.iter * this.dt * settings.scale - (this.sideLength / 2) * Math.sqrt(3) <= 0) {
 					block.distFromHex = (this.sideLength / 2) * Math.sqrt(3);
 					this.addBlock(block);
+					
 				}
 			}
 		}
 	};
-
 	this.rotate = function(steps) {
 				if(Date.now()-this.lastRotate<75 && !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ) return;
 		if (!(gameState === 1 || gameState === 0)) return;
@@ -145,6 +148,7 @@ function Hex(sideLength) {
 		gdy = 0;
 		for (var i = 0; i < this.shakes.length; i++) {
 			this.shake(this.shakes[i]);
+		
 		}
 		if (this.angle > this.targetAngle) {
 			this.angularVelocity -= angularVelocityConst * this.dt;

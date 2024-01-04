@@ -133,8 +133,21 @@ function setMainMenu() {
 	} else {
 		$("#pauseBtn").attr("src","./images/btn_pause.svg");
 	}
+	// if ($("#muteBtn").replace(/^.*[\\\/]/, '') == "mute.png") {
+	// 	$("#muteBtn").attr("src","./images/audio.png");
+	// } else {
+	// 	$("#muteBtn").attr("src","./images/mute.png");
+	// }
 }
-
+function toggleIcon() {
+	if (toggleMute == false) {
+		$("#muteBtn").attr("src","./images/audio.png");
+		toggleMute = true;
+	} else {
+		$("#muteBtn").attr("src","./images/mute.png");
+		toggleMute = false;
+	}
+}
 function hideText() {
 	$(".overlay").fadeOut(150, function() {
 		$(".overlay").html("");
@@ -193,13 +206,17 @@ function pause(o) {
 		}
 
 		$("#pauseBtn").attr("src", "./images/btn_pause.svg");
+		// $("#muteBtn").attr("src", "./images/mute.png");
 		$('.helpText').fadeOut(300, 'linear');
 		$('#overlay').fadeOut(300, 'linear');
 		hideText();
 		setTimeout(function() {
 			gameState = prevGameState;
 			pausable =true;
-			sound.play();
+			if (!sound.playing() && toggleMute==false) {
+				sound.play();
+			}
+			
 		}, 400);
 	} else if (gameState != -2 && gameState !== 0 && gameState !== 2) {
 		$('#restartBtn').fadeIn(300, "linear");
@@ -207,10 +224,13 @@ function pause(o) {
 		$('.helpText').fadeIn(300, 'linear');
 		if (message == 'paused') {
 			showText(message);
-			sound.pause();
+			if (sound.playing()) { //&& toggleMute==false or remove ()?
+				sound.pause();
+			}
 		}
 		$('#fork-ribbon').fadeIn(300, 'linear');
 		$("#pauseBtn").attr("src","./images/btn_resume.svg");
+		// $("#muteBtn").attr("src","./images/audio.png");
 		$('#overlay').fadeIn(300, 'linear');
 		prevGameState = gameState;
 		setTimeout(function() {

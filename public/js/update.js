@@ -68,6 +68,5 @@ function update(dt) {
 			i--;
 		}
 	}
-
 	MainHex.ct += dt;
 }

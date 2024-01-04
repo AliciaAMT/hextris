@@ -113,7 +113,7 @@ function init( b ) {
 	}
 	if ( b ) {
 		$pauseBtn.attr( 'src', "./images/btn_pause.svg" );
-		$muteBtn.attr( 'src', "./images/mute.png" );
+		// $muteBtn.attr( 'src', "./images/mute.png" );
 		if ( $helpscreen.is( ":visible" ) ) {
 			$helpscreen.fadeOut( 150, "linear" );
 		}
@@ -138,7 +138,7 @@ function init( b ) {
 
 	infobuttonfading = true;
 	$pauseBtn.attr( 'src', "./images/btn_pause.svg" );
-	$muteBtn.attr( 'src', "./images/mute.png" );
+	// $muteBtn.attr( 'src', "./images/mute.png" );
 	hideUIElements();
 	var saveState = localStorage.getItem( "saveState" ) || "{}";
 	saveState = JSONfn.parse( saveState );
@@ -217,6 +217,7 @@ function init( b ) {
 }
 
 function addNewBlock( blocklane, color, iter, distFromHex, settled ) { //last two are optional parameters
+	// sfx.play(); //play sound when block is added
 	iter *= settings.speedModifier;
 	if ( !history[ MainHex.ct ] ) {
 		history[ MainHex.ct ] = {};
@@ -232,9 +233,13 @@ function addNewBlock( blocklane, color, iter, distFromHex, settled ) { //last tw
 		history[ MainHex.ct ].distFromHex = distFromHex;
 	}
 	if ( settled ) {
+	
 		blockHist[ MainHex.ct ].settled = settled;
+	
 	}
 	blocks.push( new Block( blocklane, color, iter, distFromHex, settled ) );
+	
+	
 }
 
 function exportHistory() {
@@ -243,7 +248,7 @@ function exportHistory() {
 }
 
 function setStartScreen() {
-	$muteBtn.show();
+	
 	$startBtn.show();
 	init();
 	if ( isStateSaved() ) {
@@ -253,6 +258,7 @@ function setStartScreen() {
 	}
 
 	$pauseBtn.hide();
+	$muteBtn.hide();
 	$restartBtn.hide();
 	$startBtn.show();
 
@@ -354,6 +360,7 @@ function enableRestart() {
 }
 
 function isInfringing( hex ) {
+
 	for ( var i = 0; i < hex.sides; i++ ) {
 		var subTotal = 0;
 		for ( var j = 0; j < hex.blocks[ i ].length; j++ ) {
@@ -403,9 +410,9 @@ function showHelp() {
 		return;
 	}
 
-	if ( $muteBtn.attr( 'src' ) == "./images/mute.png" && gameState != 0 && !infobuttonfading ) {
-		return;
-	}
+	// if ( $muteBtn.attr( 'src' ) == "./images/mute.png" && gameState != 0 && !infobuttonfading ) {
+	// 	return;
+	// }
 
 	$( "#openSideBar" ).fadeIn( 150, "linear" );
 	$helpscreen.fadeToggle( 150, "linear" );
